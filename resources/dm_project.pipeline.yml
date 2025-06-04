@@ -1,0 +1,13 @@
+# The main pipeline for dm_project
+resources:
+  pipelines:
+    dm_project_pipeline:
+      name: dm_project_pipeline
+      catalog: dm_dev_workspace
+      target: dm_project_${bundle.target}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
